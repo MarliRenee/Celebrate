@@ -23,11 +23,13 @@ function displayResults(responseJson) {
   $('#results').removeClass('hidden');
 };
 
-function getHolidays(country, year) {
+function getHolidays(country, year, month, day) {
   const params = {
     api_key: apiKey,
     country: country,
     year: year,
+    month: month,
+    day: day,
   };
   const queryString = formatQueryParams(params)
   const url = searchURL + '?' + queryString;
@@ -50,7 +52,9 @@ function watchForm() {
     event.preventDefault();
     const year = $('#year').val();
     const country = $('#country').val();
-    getHolidays(country, year);
+    const month = $('#month').val();
+    const day = $('#day').val();
+    getHolidays(country, year, month, day);
   });
 }
 
