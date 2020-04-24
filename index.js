@@ -1,15 +1,18 @@
 'use strict';
 
-const apiKey = '6a93fc0ceb56dd88e4f84f7a75315a5ec21c7a05'; 
-const searchURL = 'https://calendarific.com/api/v2/holidays';
+//CALENDARIFIC API INFO
+const calendarificApiKey = '6a93fc0ceb56dd88e4f84f7a75315a5ec21c7a05'; 
+const calendarificSearchURL = 'https://calendarific.com/api/v2/holidays';
 
-function formatQueryParams(params) {
+//FORMAT THE CALENDARIFIC SEARCH PARAMETERS
+function formatHolidayQueryParams(params) {
   const queryItems = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
   return queryItems.join('&');
 }
 
-function displayResults(responseJson) {
+//DISPLAY THE CALENDARIFIC JSON RESULTS & LIST IN HTML
+function displayCalendarificResults(responseJson) {
   console.log(responseJson.response.holidays);
   const hol = responseJson.response.holidays;
   $('#results-list').empty();
@@ -21,23 +24,25 @@ function displayResults(responseJson) {
     )};
   if (hol.length === 0) {
       $('#results-list').append(
-      `<li><h3>Oh no! No holidays to display</h3>
+      `<li><h3>There are no holidays to display today. Let's celebrate your unbirthday instead!</h3>
       </li>`
     )};
   $('#results').removeClass('hidden');
 };
 
+//FIND THE CALENDARIFIC PARAMETERS
 function getHolidays(country, year, month, day) {
   const params = {
-    api_key: apiKey,
+    api_key: calendarificApiKey,
     country: country,
     year: year,
     month: month,
     day: day,
   };
-  const queryString = formatQueryParams(params)
-  const url = searchURL + '?' + queryString;
+  const queryString = formatHolidayQueryParams(params)
+  const url = calendarificSearchURL + '?' + queryString;
 
+  //DISPLAY CALENDARIFIC RESULTS OR ERRORS
   fetch(url)
     .then(response => {
       if (response.ok) {
@@ -45,12 +50,13 @@ function getHolidays(country, year, month, day) {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayResults (responseJson))
+    .then(responseJson => displayCalendarificResults (responseJson))
     .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+      $('#calendarific-js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }
 
+//RUN!
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
