@@ -3,7 +3,6 @@
 const apiKey = '6a93fc0ceb56dd88e4f84f7a75315a5ec21c7a05'; 
 const searchURL = 'https://calendarific.com/api/v2/holidays';
 
-
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
@@ -18,6 +17,11 @@ function displayResults(responseJson) {
     $('#results-list').append(
       `<li><h3>${hol[i].name}</h3>
       <p>${hol[i].description}</p>
+      </li>`
+    )};
+  if (hol.length === 0) {
+      $('#results-list').append(
+      `<li><h3>Oh no! No holidays to display</h3>
       </li>`
     )};
   $('#results').removeClass('hidden');
