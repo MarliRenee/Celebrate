@@ -6,15 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Holiday Finder</title>
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="container">
         <h1>Find a Holiday</h1>
 
         <form id="js-form">
+
+          <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+              <h2>Search for a country</h2>
+              <input id="myInput" type="text" name="myCountry" placeholder="Country">
+            </div>
+            <input type="submit">
+          </form>
+
           <div class="Countries">
-            <label for="country-search"><h2>Select a Country</h2></label>
+            <label for="country-search"><h2>Or select a country</h2></label>
             <p>
               <select id="country" name="country" multiple>
                 <<option value="AF">Afghanistan</option>
@@ -320,5 +329,6 @@
     
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <script src="countriesStore.js"></script>
 </body>
 </html>
