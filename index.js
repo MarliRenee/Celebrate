@@ -20,15 +20,21 @@ function displayCalendarificResults(responseJson) {
     $('#results-list').append(
       `<li><h3>${hol[i].name}</h3>
       <p>${hol[i].description}</p>
+      <button id="startOver">Start Over</button>
       </li>`
     )};
   if (hol.length === 0) {
       $('#results-list').append(
       `<li><h3>There are no holidays to display today. Let's celebrate your unbirthday instead!</h3>
+      <button id="startOver">Start Over</button>
       </li>`
     )};
   $('#results').removeClass('hidden');
+  $('#startOver').click(function(){
+    $('#results-list').empty();
+  });
 };
+
 
 //FIND THE CALENDARIFIC PARAMETERS
 function getHolidays(country, year, month, day) {
