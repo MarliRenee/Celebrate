@@ -62,32 +62,479 @@ function getHolidays(country, year, month, day) {
     });
 }
 
-//AUTOFILL TEST
+//AUTOFILL 
+var countries = [
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "American Samoa",
+  "Andorra",
+  "Angola",
+  "Anguilla",
+  "Antigua and Barbuda",
+  "Argentina",
+  "Armenia",
+  "Aruba",
+  "Australia",
+  "Austria",
+  "Azerbaijan",
+  "Bahrain",
+  "Bangladesh",
+  "Barbados",
+  "Belarus",
+  "Belgium",
+  "Belize",
+  "Benin",
+  "Bermuda",
+  "Bhutan",
+  "Bolivia",
+  "Bosnia and Herzegovina",
+  "Botswana",
+  "Brazil",
+  "British Virgin Islands",
+  "Brunei",
+  "Bulgaria",
+  "Burkina Faso",
+  "Burundi",
+  "Cambodia",
+  "Cameroon",
+  "Canada",
+  "Cayman Islands",
+  "Central African Republic",
+  "Chad",
+  "Chile",
+  "China",
+  "Colombia",
+  "Comoros",
+  "Congo",
+  "Congo Democratic Republic",
+  "Cook Islands",
+  "Costa Rica",
+  "Cote d'Ivoire",
+  "Croatia",
+  "Cuba",
+  "Curaçao",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Djibouti",
+  "Dominica",
+  "Dominican Republic",
+  "Ecuador",
+  "Egypt",
+  "El Salvador",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Estonia",
+  "Ethiopia",
+  "Falkland Islands",
+  "Faroe Islands",
+  "Fiji",
+  "Finland",
+  "France",
+  "French Polynesia",
+  "Gabon",
+  "Gambia",
+  "Georgia",
+  "Germany",
+  "Ghana",
+  "Gibraltar",
+  "Greece",
+  "Greenland",
+  "Grenada",
+  "Guam",
+  "Guatemala",
+  "Guernsey",
+  "Guinea",
+  "Guinea-Bissau",
+  "Guyana",
+  "Haiti",
+  "Holy See (Vatican City)",
+  "Honduras",
+  "Hong Kong",
+  "Hungary",
+  "Iceland",
+  "India",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Ireland",
+  "Isle of Man",
+  "Israel",
+  "Italy",
+  "Jamaica",
+  "Japan",
+  "Jersey",
+  "Jordan",
+  "Kazakhstan",
+  "Kenya",
+  "Kiribati",
+  "Kuwait",
+  "Kyrgyzstan",
+  "Laos",
+  "Latvia",
+  "Lebanon",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Liechtenstein",
+  "Lithuania",
+  "Luxembourg",
+  "Macau",
+  "Madagascar",
+  "Malawi",
+  "Malaysia",
+  "Maldives",
+  "Mali",
+  "Malta",
+  "Marshall Islands",
+  "Martinique",
+  "Mauritania",
+  "Mauritius",
+  "Mayotte",
+  "Mexico",
+  "Micronesia",
+  "Moldova",
+  "Monaco",
+  "Mongolia",
+  "Montenegro",
+  "Montserrat",
+  "Morocco",
+  "Mozambique",
+  "Myanmar",
+  "Namibia",
+  "Nauru",
+  "Nepal",
+  "Netherlands",
+  "New Caledonia",
+  "New Zealand",
+  "Nicaragua",
+  "Niger",
+  "Nigeria",
+  "Northern Mariana Islands",
+  "Norway",
+  "Oman",
+  "Pakistan",
+  "Palau",
+  "Panama",
+  "Papua New Guinea",
+  "Paraguay",
+  "Peru",
+  "Philippines",
+  "Poland",
+  "Portugal",
+  "Puerto Rico",
+  "Qatar",
+  "Reunion",
+  "Romania",
+  "Russia",
+  "Rwanda",
+  "Saint Helena",
+  "Saint Kitts and Nevis",
+  "Saint Lucia",
+  "Saint Martin",
+  "Saint Pierre and Miquelon",
+  "Saint Vincent and the Grenadines",
+  "Samoa",
+  "San Marino",
+  "Sao Tome and Principe",
+  "Saudi Arabia",
+  "Senegal",
+  "Serbia",
+  "Seychelles",
+  "Sierra Leone",
+  "Singapore",
+  "Sint Maarten",
+  "Slovakia",
+  "Slovenia",
+  "Solomon Islands",
+  "Somalia",
+  "South Africa",
+  "South Korea",
+  "South Sudan",
+  "Spain",
+  "Sri Lanka",
+  "Sudan",
+  "Suriname",
+  "Sweden",
+  "Switzerland",
+  "Syria",
+  "Taiwan",
+  "Tajikistan",
+  "Tanzania",
+  "Thailand",
+  "Togo",
+  "Tonga",
+  "Trinidad and Tobago",
+  "Tunisia",
+  "Turkey",
+  "Turkmenistan",
+  "Turks and Caicos Islands",
+  "Tuvalu",
+  "US Virgin Islands",
+  "Uganda",
+  "Ukraine",
+  "United Arab Emirates",
+  "United Kingdom",
+  "United States",
+  "Uruguay",
+  "Uzbekistan",
+  "Vanuatu",
+  "Venezuela",
+  "Vietna",
+  "Yemen",
+  "Zambia",
+  "Zimbabwe",
+]
+
+var countryCodes = {
+  Afghanistan:	"af",
+  Albania:	"al",
+  Algeria:	"dz",
+  "American Samoa":	"as",
+  Andorra:	"ad",
+  Angola:	"ao",
+  Anguilla:	"ai",
+  "Antigua and Barbuda":	"ag",
+  Argentina:	"ar",
+  Armenia:	"am",
+  Aruba:	"aw",
+  Australia:	"au",
+  Austria:	"at",
+  Azerbaijan:	"az",
+  Bahrain:	"bh",
+  Bangladesh:	"bd",
+  Barbados:	"bb",
+  Belarus:	"by",
+  Belgium:	"be",
+  Belize:	"bz",
+  Benin:	"bj",
+  Bermuda:	"bm",
+  Bhutan:	"bt",
+  Bolivia:	"bo",
+  "Bosnia and Herzegovina":	"ba",
+  Botswana:	"bw",
+  Brazil:	"br",
+  "British Virgin Islands":	"vg",
+  Brunei:	"bn",
+  Bulgaria:	"bg",
+  "Burkina Faso":	"bf",
+  Burundi:	"bi",
+  Cambodia:	"kh",
+  Cameroon:	"cm",
+  Canada:	"ca",
+  "Cayman Islands":	"ky",
+  "Central African Republic":	"cf",
+  Chad:	"td",
+  Chile:	"cl",
+  China:	"cn",
+  Colombia:	"co",
+  Comoros:	"km",
+  Congo:	"cg",
+  "Congo Democratic Republic":	"cd",
+  "Cook Islands":	"ck",
+  "Costa Rica":	"cr",
+  "Cote d'Ivoire":	"ci",
+  Croatia:	"hr",
+  Cuba:	"cu",
+  Curaçao:	"cw",
+  Cyprus:	"cy",
+  "Czech Republic":	"cz",
+  Denmark:	"dk",
+  Djibouti:	"dj",
+  Dominica:	"dm",
+  "Dominican Republic":	"do",
+  Ecuador:	"ec",
+  Egypt:	"eg",
+  "El Salvador":	"sv",
+  "Equatorial Guinea":	"gq",
+  Eritrea:	"er",
+  Estonia:	"ee",
+  Ethiopia:	"et",
+  "Falkland Islands":"fk",
+  "Faroe Islands":"fo",
+  Fiji:	"fj",
+  Finland:	"fi",
+  France:	"fr",
+  "French Polynesia":	"pf",
+  Gabon:	"ga",
+  Gambia:	"gm",
+  Georgia:"ge",
+  Germany:"de",
+  Ghana:	"gh",
+  Gibraltar:"gi",
+  Greece:	"gr",
+  Greenland:"gl",
+  Grenada:"gd",
+  Guam:	"gu",
+  Guatemala:"gt",
+  Guernsey:	"gg",
+  Guinea:	"gn",
+  "Guinea-Bissau":"gw",
+  Guyana:"gy",
+  Haiti:"ht",
+  "Holy See (Vatican City)":"va",
+  Honduras:	"hn",
+  "Hong Kong":"hk",
+  Hungary: "hu",
+  Iceland: "is",
+  India:"in",
+  Indonesia:"id",
+  Iran:	"ir",
+  Iraq:	"iq",
+  Ireland:"ie",
+  "Isle of Man":"im",
+  Israel:"il",
+  Italy:"it",
+  Jamaica:"jm",
+  Japan:"jp",
+  Jersey:"je",
+  Jordan:"jo",
+  Kazakhstan:"kz",
+  Kenya:"ke",
+  Kiribati:"ki",
+  Kuwait:"kw",
+  Kyrgyzstan:"kg",
+  Laos:"la",
+  Latvia:"lv",
+  Lebanon:"lb",
+  Lesotho:"ls",
+  Liberia:"lr",
+  Libya:"ly",
+  Liechtenstein:"li",
+  Lithuania:"lt",
+  Luxembourg:"lu",
+  Macau:"mo",
+  Madagascar:"mg",
+  Malawi:"mw",
+  Malaysia:"my",
+  Maldives:"mv",
+  Mali:"ml",
+  Malta:"mt",
+  "Marshall Islands":"mh",
+  Martinique:"mq",
+  Mauritania:"mr",
+  Mauritius:"mu",
+  Mayotte:"yt",
+  Mexico:"mx",
+  Micronesia:"fm",
+  Moldova:"md",
+  Monaco:"mc",
+  Mongolia:"mn",
+  Montenegro:"me",
+  Montserrat:"ms",
+  Morocco:"ma",
+  Mozambique:"mz",
+  Myanmar:"mm",
+  Namibia:"na",
+  Nauru:"nr",
+  Nepal:"np",
+  Netherlands:"nl",
+  "New Caledonia":"nc",
+  "New Zealand":"nz",
+  Nicaragua:"ni",
+  Niger:"ne",
+  Nigeria:"ng",
+  "Northern Mariana Islands":"mp",
+  Norway:"no",
+  Oman:"om",
+  Pakistan:"pk",
+  Palau:"pw",
+  Panama:"pa",
+  "Papua New Guinea":"pg",
+  Paraguay:"py",
+  Peru:"pe",
+  Philippines:"ph",
+  Poland:"pl",
+  Portugal:"pt",
+  "Puerto Rico":"pr",
+  Qatar:"qa",
+  Reunion:"re",
+  Romania:"ro",
+  Russia:"ru",
+  Rwanda:"rw",
+  "Saint Helena":"sh",
+  "Saint Kitts and Nevis":"kn",
+  "Saint Lucia":"lc",
+  "Saint Martin":"mf",
+  "Saint Pierre and Miquelon":"pm",
+  "Saint Vincent and the Grenadines":"vc",
+  Samoa:"ws",
+  "San Marino":	"sm",
+  "Sao Tome and Principe":"st",
+  "Saudi Arabia":"sa",
+  Senegal:"sn",
+  Serbia:"rs",
+  Seychelles:"sc",
+  "Sierra Leone":"sl",
+  Singapore:"sg",
+  "Sint Maarten":"sx",
+  Slovakia:"sk",
+  Slovenia:"si",
+  "Solomon Islands":"sb",
+  Somalia:"so",
+  "South Africa":"za",
+  "South Korea":"kr",
+  "South Sudan":"ss",
+  Spain:"es",
+  "Sri Lanka":"lk",
+  Sudan:"sd",
+  Suriname:"sr",
+  Sweden:"se",
+  Switzerland:"ch",
+  Syria:"sy",
+  Taiwan:"tw",
+  Tajikistan:"tj",
+  Tanzania:"tz",
+  Thailand:"th",
+  Togo:"tg",
+  Tonga:"to",
+  "Trinidad and Tobago":"tt",
+  Tunisia:"tn",
+  Turkey:"tr",
+  Turkmenistan:"tm",
+  "Turks and Caicos Islands":"tc",
+  Tuvalu:"tv",
+  "US Virgin Islands":"vi",
+  Uganda:"ug",
+  Ukraine:"ua",
+  "United Arab Emirates":"ae",
+  "United Kingdom":"gb",
+  "United States":"us",
+  Uruguay:"uy",
+  Uzbekistan:"uz",
+  Vanuatu:"vu",
+  Venezuela:"ve",
+  Vietnam:"vn",
+  Yemen:"ye",
+  Zambia:"zm",
+  Zimbabwe:"zw",
+}
 
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      this.parentNode.appendChild(a);
-      for (i = 0; i < arr.length; i++) {
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-          b = document.createElement("DIV");
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-              b.addEventListener("click", function(e) {
-              inp.value = this.getElementsByTagName("input")[0].value;
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
+    var a, b, i, val = this.value;
+    closeAllLists();
+    if (!val) { return false;}
+    currentFocus = -1;
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(a);
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        b = document.createElement("DIV");
+        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += arr[i].substr(val.length);
+        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+        b.addEventListener("click", function(e) {
+            inp.value = this.getElementsByTagName("input")[0].value;
+            closeAllLists();
+        }); 
+        a.appendChild(b);
       }
+    }  
   });
 
   inp.addEventListener("keydown", function(e) {
@@ -106,6 +553,7 @@ function autocomplete(inp, arr) {
         }
       }
   });
+
   function addActive(x) {
     if (!x) return false;
     removeActive(x);
@@ -113,34 +561,41 @@ function autocomplete(inp, arr) {
     if (currentFocus < 0) currentFocus = (x.length - 1);
     x[currentFocus].classList.add("autocomplete-active");
   }
+
   function removeActive(x) {
     for (var i = 0; i < x.length; i++) {
       x[i].classList.remove("autocomplete-active");
     }
   }
+
   function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
       x[i].parentNode.removeChild(x[i]);
+      }
     }
-  }
-}
-document.addEventListener("click", function (e) {
+  } 
+  
+
+  document.addEventListener("click", function (e) {
     closeAllLists(e.target);
-});
+  }); 
+
 }
+
+//AUTOCOMPLETE WATCH
+autocomplete(document.getElementById("myInput"), countries); 
 
 //RUN!
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     const year = $('#year').val();
-    const country = $('#country').val();
+    const country = $('#myInput').val();
     const month = $('#month').val();
     const day = $('#day').val();
-    getHolidays(country, year, month, day);
-    autocomplete(document.getElementById("myInput"), countries);
+    getHolidays(countryCodes[country], year, month, day);
   });
 }
 
