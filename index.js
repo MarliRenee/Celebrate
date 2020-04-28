@@ -62,7 +62,7 @@ function getHolidays(country, year, month, day) {
     });
 }
 
-//AUTOFILL 
+//AUTOFILL COUNTRIES & COUNTRY CODES
 var countries = [
   "Afghanistan",
   "Albania",
@@ -511,6 +511,7 @@ var countryCodes = {
   Zimbabwe:"zw",
 }
 
+//AUTOFILL FUNCTION
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("input", function(e) {
@@ -577,11 +578,9 @@ function autocomplete(inp, arr) {
     }
   } 
   
-
   document.addEventListener("click", function (e) {
     closeAllLists(e.target);
   }); 
-
 }
 
 //AUTOCOMPLETE WATCH
