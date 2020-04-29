@@ -9,7 +9,7 @@ https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/CountrySearch.PN
 https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Response1.PNG?raw=true
 https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Response2.PNG?raw=true
 
-This makes your app description much easier to understand.
+App description:
 Celebrate is an international holiday finding app. Just search for a country, enter a date, and see all the holidays happening on that date!
 
 Technology used:
