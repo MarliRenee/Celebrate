@@ -25,6 +25,17 @@ p {
   font-weight: 400;
 }
 
+header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 10%;
+  padding-left: 10%;
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: white;
+}
+
 #wikiBlurb {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -50,17 +61,6 @@ a {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 16px;
-}
-
-.holidayInfo {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 10%;
-  padding-left: 10%;
-  margin-top: 30px;
-  margin-left: 10%;
-  margin-right: 10%;
-  background: white;
 }
 
 .error-message {
@@ -158,10 +158,6 @@ padding: 10px;
 cursor: pointer;
 background-color: #fff;
 border-bottom: 1px solid #d4d4d4;
-}
-
-submitButton {
-  background-color: rgb(116, 149, 199);
 }
 
 button {
