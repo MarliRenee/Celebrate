@@ -573,7 +573,7 @@ function getWikipediaBlurb(srsearch, srlimitNumber){
 }
 
 // //CALENDARIFIC API 
-const calendarificApiKey = '6a93fc0ceb56dd88e4f84f7a75315a5ec21c7a05'; 
+const calendarificApiKey = '5931d52bf4f8179042bc5c687edcd6c2e1cd4b4b'; 
 const calendarificSearchURL = 'https://calendarific.com/api/v2/holidays';
 
 //FORMAT THE CALENDARIFIC SEARCH PARAMETERS
