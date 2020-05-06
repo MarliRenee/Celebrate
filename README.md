@@ -4,16 +4,12 @@ Link to  live app:
 https://marlirenee.github.io/Celebrate/
 
 Screenshot(s) of app:
-https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Start.PNG?raw=true
-https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/CountrySearch.PNG?raw=true
-https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Response1.PNG?raw=true
-https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Response2.PNG?raw=true
+![Intro Page](https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Start.PNG)
+![Initial Search](https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Search.PNG)
+![Response](https://github.com/MarliRenee/Celebrate/blob/master/Screenshots/Results.PNG)
 
 App description:
 Celebrate is an international holiday finding app. Just search for a country, enter a date, and see all the holidays happening on that date!
 
 Technology used:
 HTML,CSS and JavaScript/jQuery
-
-Walkthrough:
-img src=https://github.com/MarliRenee/Celebrate/blob/master/Optimized.gif?raw=true
